@@ -15,13 +15,13 @@
 
 
 ### Association
-- has_many :items dependent: :destroy
+- has_many :users_items
+- has_many :items, through: :users_items
 
 ## items テーブル
 
 | column          | Type       | options                        |
 | --------------- | ---------- | ------------------------------ |
-| image           | string     | null: false                    |
 | item_name       | string     | null: false                    |
 | description     | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
@@ -33,8 +33,6 @@
 | user_id         | integer    | null: false , foreign_key: true|
 | brand_id        | integer    | null: false , foreign_key: true|
 | category_id     | integer    | null: false , foreign_key: true|
-| seller_id       | integer    | null: false , foreign_key: true|
-| buyer_id        | integer    | foreign_key: true              |
 
 ### Association
 
@@ -54,4 +52,10 @@
 
 ### Association
 
-- belongs_to :user
+- belongs_to :users_items
+
+## users_items テーブル
+| column          | Type       | options                        |
+| --------------- | ---------- | ------------------------------ |
+| user_id         | integer    | null: false, foreign_key: true |
+| item_id         | integer    | null: false, foreign_key: true |
