@@ -16,7 +16,7 @@
 
 ### Association
 - has_many :users_items
-- has_many :items, through: :users_items
+- has_many :items, through: :users_items dependent: :destroy
 
 ## items テーブル
 
@@ -25,18 +25,16 @@
 | item_name       | string     | null: false                    |
 | description     | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
-| item_condition  | string     | null: false                    |
+| state_id        | integer    | null: false                    |
 | price           | integer    | null: false                    |
-| tax             | integer    | null: false                    |
-| shipping_fee    | integer    | null: false                    |
-| shipping_days   | integer    | null: false                    |
+| shipping_fee_id | integer    | null: false                    |
+| shipping_day_id | integer    | null: false                    |
 | user_id         | integer    | null: false , foreign_key: true|
-| brand_id        | integer    | null: false , foreign_key: true|
 | category_id     | integer    | null: false , foreign_key: true|
 
 ### Association
 
-- belongs_to :user 
+- belongs_to :user through : :users_items 
 
 ## destinations テーブル
 
@@ -48,7 +46,7 @@
 | lot_number      | string     | null: false                    |
 | building_name   | string     |                                |
 | phone_number    | string     | null: false                    |
-| user_id         | integer    | null: false, foreign_key: true |
+| users_items_id  | integer    | null: false, foreign_key: true |
 
 ### Association
 
@@ -59,3 +57,8 @@
 | --------------- | ---------- | ------------------------------ |
 | user_id         | integer    | null: false, foreign_key: true |
 | item_id         | integer    | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :users
+- belongs_to :items
