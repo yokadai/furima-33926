@@ -51,7 +51,7 @@
 
 ### Association
 
-- belongs_to :users_items
+- belongs_to :user_item
 
 ## users_items テーブル
 | column          | Type       | options                        |
