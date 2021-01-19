@@ -24,7 +24,7 @@
 | image           | string     | null: false                    |
 | item_name       | string     | null: false                    |
 | description     | string     | null: false                    |
-| prefecture      | string     | null: false                    |
+| prefecture_id   | integer     | null: false                    |
 | item_condition  | string     | null: false                    |
 | price           | integer    | null: false                    |
 | tax             | integer    | null: false                    |
@@ -43,12 +43,12 @@
 
 | column          | Type       | options                        |
 | --------------- | ---------- | ------------------------------ |
-| postal_code     | integer    | null: false                    |
-| prefecture      | string     | null: false                    |
+| postal_code     | string     | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | city            | string     | null: false                    |
 | lot_number      | string     | null: false                    |
 | building_name   | string     |                                |
-| phone_number    | integer    | null: false                    |
+| phone_number    | string     | null: false                    |
 | user_id         | integer    | null: false, foreign_key: true |
 
 ### Association
