@@ -23,14 +23,14 @@
 | column          | Type       | options                        |
 | --------------- | ---------- | ------------------------------ |
 | item_name       | string     | null: false                    |
-| description     | string     | null: false                    |
+| description     | integer     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | state_id        | integer    | null: false                    |
 | price           | integer    | null: false                    |
 | shipping_fee_id | integer    | null: false                    |
 | shipping_day_id | integer    | null: false                    |
 | user_id         | integer    | null: false , foreign_key: true|
-| category_id     | integer    | null: false , foreign_key: true|
+| category_id     | integer    | null: false                    |
 
 ### Association
 
@@ -59,6 +59,6 @@
 | item_id         | integer    | null: false, foreign_key: true |
 
 ### Association
-
+- has_one :destinations
 - belongs_to :users
 - belongs_to :items
