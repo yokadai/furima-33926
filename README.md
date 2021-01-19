@@ -24,7 +24,7 @@
 | image           | string     | null: false                    |
 | item_name       | string     | null: false                    |
 | description     | string     | null: false                    |
-| prefecture_id   | integer     | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | item_condition  | string     | null: false                    |
 | price           | integer    | null: false                    |
 | tax             | integer    | null: false                    |
@@ -33,6 +33,8 @@
 | user_id         | integer    | null: false , foreign_key: true|
 | brand_id        | integer    | null: false , foreign_key: true|
 | category_id     | integer    | null: false , foreign_key: true|
+| seller_id       | integer    | null: false , foreign_key: true|
+| buyer_id        | integer    | foreign_key: true              |
 
 ### Association
 
@@ -64,5 +66,3 @@
 ### Association
 
 - has_many :items
-
-## 
