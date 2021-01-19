@@ -15,8 +15,8 @@
 
 
 ### Association
-- has_many :users_items
-- has_many :items, through: :users_items dependent: :destroy
+- has_many :user_items
+- has_many :items dependent: :destroy
 
 ## items テーブル
 
@@ -34,7 +34,7 @@
 
 ### Association
 
-- belongs_to :user through: :users_items 
+- belongs_to :user 
 - has_one :user_item
 
 ## destinations テーブル
@@ -47,13 +47,13 @@
 | lot_number      | string     | null: false                    |
 | building_name   | string     |                                |
 | phone_number    | string     | null: false                    |
-| users_item_id  | integer    | null: false, foreign_key: true |
+| user_item_id  | integer    | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user_item
 
-## users_items テーブル
+## user_items テーブル
 | column          | Type       | options                        |
 | --------------- | ---------- | ------------------------------ |
 | user_id         | integer    | null: false, foreign_key: true |
