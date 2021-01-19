@@ -39,7 +39,6 @@
 ### Association
 
 - belongs_to :user 
-- belongs_to :brand 
 
 ## destinations テーブル
 
@@ -56,13 +55,3 @@
 ### Association
 
 - belongs_to :user
-
-## brands テーブル
-
-| column           | Type       | options             |
-| ---------------- | ---------- | ------------------- |
-| brand_name       | string     |                     |
-
-### Association
-
-- has_many :items
