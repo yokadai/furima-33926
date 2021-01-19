@@ -16,8 +16,6 @@
 
 ### Association
 - has_many :items dependent: :destroy
-- has_one :credit_cards dependent: :destroy
-- has_one :destinations dependent: :destroy
 
 ## items テーブル
 
@@ -38,9 +36,8 @@
 
 ### Association
 
-- belongs_to :user dependent: :destroy
-- belongs_to :category dependent: :destroy
-- belongs_to :brand dependent: :destroy
+- belongs_to :user 
+- belongs_to :brand 
 
 ## destinations テーブル
 
@@ -58,19 +55,6 @@
 
 - belongs_to :user
 
-## credit_cards テーブル
-
-| column           | Type       | options                        |
-| ---------------- | ---------- | ------------------------------ |
-| expiration_year  | integer    | null: false                    |
-| expiration_month | integer    | null: false                    |
-| security_code    | integer    | null: false                    |
-| user_id          | integer    | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-
 ## brands テーブル
 
 | column           | Type       | options             |
@@ -81,12 +65,4 @@
 
 - has_many :items
 
-## categories テーブル
-
-| column           | Type       | options             |
-| ---------------- | ---------- | ------------------- |
-| category_name    | string     | null: false         |
-
-### Association
-
-- has_many :items
+## 
