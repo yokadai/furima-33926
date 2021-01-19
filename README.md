@@ -46,7 +46,7 @@
 | lot_number      | string     | null: false                    |
 | building_name   | string     |                                |
 | phone_number    | string     | null: false                    |
-| users_items_id  | integer    | null: false, foreign_key: true |
+| users_item_id  | integer    | null: false, foreign_key: true |
 
 ### Association
 
@@ -59,6 +59,6 @@
 | item_id         | integer    | null: false, foreign_key: true |
 
 ### Association
-- has_one :destinations
+- has_one :destination
 - belongs_to :users
 - belongs_to :items
