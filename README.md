@@ -29,7 +29,7 @@
 | price           | integer    | null: false                    |
 | shipping_fee_id | integer    | null: false                    |
 | shipping_day_id | integer    | null: false                    |
-| user_id         | integer    | null: false , foreign_key: true|
+| user            | references | null: false , foreign_key: true|
 | category_id     | integer    | null: false                    |
 
 ### Association
@@ -47,7 +47,7 @@
 | lot_number      | string     | null: false                    |
 | building_name   | string     |                                |
 | phone_number    | string     | null: false                    |
-| user_item_id    | integer    | null: false, foreign_key: true |
+| user_item       | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -56,8 +56,8 @@
 ## user_items テーブル
 | column          | Type       | options                        |
 | --------------- | ---------- | ------------------------------ |
-| user_id         | integer    | null: false, foreign_key: true |
-| item_id         | integer    | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :destination
