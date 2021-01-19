@@ -23,7 +23,7 @@
 | column          | Type       | options                        |
 | --------------- | ---------- | ------------------------------ |
 | item_name       | string     | null: false                    |
-| description     | integer     | null: false                    |
+| description     | text       | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | state_id        | integer    | null: false                    |
 | price           | integer    | null: false                    |
@@ -34,7 +34,8 @@
 
 ### Association
 
-- belongs_to :user through : :users_items 
+- belongs_to :user through: :users_items 
+- has_one :user_item
 
 ## destinations テーブル
 
@@ -60,5 +61,5 @@
 
 ### Association
 - has_one :destination
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
