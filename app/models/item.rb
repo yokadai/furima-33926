@@ -12,9 +12,11 @@ class Item < ApplicationRecord
     validates :shipping_day_id
     validates :category_id
     validates :user
+    validates :image
   end
   
   has_one_attached       :image
+
   belongs_to             :user 
   has_one                :user_item
 
