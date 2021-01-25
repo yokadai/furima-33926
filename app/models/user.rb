@@ -2,8 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
    
-    has_many :user_items
-    has_many :items dependent: :destroy
+  has_many :user_items
+  has_many :items, through: :user_items
 
     with_options presence: true do
       validates :password,        format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
@@ -16,5 +16,5 @@ class User < ApplicationRecord
        validates :first_name
       end
     end
-  end
+end
 
