@@ -21,11 +21,11 @@ class Item < ApplicationRecord
   has_one                :user_item
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :category_id
-  belongs_to_active_hash :state_id
-  belongs_to_active_hash :Shipping_fee
   belongs_to_active_hash :prefecture
-  belongs_to_active_hash :Shipping_days
+  belongs_to_active_hash :category
+  belongs_to_active_hash :shippingDay
+  belongs_to_active_hash :state
+  belongs_to_active_hash :ShippingFee
   
 
   
