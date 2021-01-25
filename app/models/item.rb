@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :Shipping_fee
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :Shipping_days
-
+  has_one_attached       :image
 
   with_options presence: true do
     validates :item_name
