@@ -75,5 +75,23 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be less than 10000000')
     end
+    
+    it '値段が全角だと保存できない' do
+      @item.price = "あ"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
+    end
+    
+    it '値段が英数混合だと保存できない' do
+      @item.price = "ad44"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
+    end
+
+    it '値段が半角英語だと保存できない' do
+      @item.price = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
+    end
   end
 end
