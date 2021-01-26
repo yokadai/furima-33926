@@ -5,17 +5,16 @@ RSpec.describe Item, type: :model do
     before do
       @item = FactoryBot.build(:item)
     end
-   
+
     context '出品可能な時' do
       it '情報が正常であれば出品可能' do
         expect(@item).to be_valid
       end
     end
 
-    context "出品不可能な時" do
-
+    context '出品不可能な時' do
       it '画像が空だと保存できない' do
-       @item.image = nil
+        @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
@@ -23,7 +22,7 @@ RSpec.describe Item, type: :model do
       it '名前が空だと保存できない' do
         @item.item_name = nil
         @item.valid?
-       expect(@item.errors.full_messages).to include("Item name can't be blank")
+        expect(@item.errors.full_messages).to include("Item name can't be blank")
       end
 
       it '説明が空だと保存できない' do
@@ -79,24 +78,24 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than 10000000')
       end
-      
+
       it '値段が全角だと保存できない' do
-        @item.price = "あ"
+        @item.price = 'あ'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
-      
+
       it '値段が英数混合だと保存できない' do
-        @item.price = "ad44"
+        @item.price = 'ad44'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
 
       it '値段が半角英語だと保存できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
-    end  
+    end
   end
 end
