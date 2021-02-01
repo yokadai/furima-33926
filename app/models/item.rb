@@ -18,7 +18,7 @@ class Item < ApplicationRecord
   has_one_attached       :image
 
   belongs_to             :user
-  has_one                :user_item
+  has_one                :destination
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
