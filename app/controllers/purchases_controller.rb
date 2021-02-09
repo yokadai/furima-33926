@@ -1,14 +1,11 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_purchase, only: [:index, :new]
   before_action :set_item, only: [:index, :create]
   before_action :saler
   before_action :purchased_item
 
   def index
-  end
-
-  def new
+    @purchase = Purchase.new
   end
 
   def create
@@ -38,10 +35,6 @@ class PurchasesController < ApplicationController
       card: purchase_params[:token],
       currency: 'jpy'
     )
-  end
-
-  def set_purchase
-    @purchase = Purchase.new
   end
 
   def set_item
