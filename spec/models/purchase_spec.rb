@@ -51,6 +51,12 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase.errors.full_messages).to include("City can't be blank")
       end
 
+      it 'lot_numberが空の場合購入不可' do
+        @purchase.lot_number = nil
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("Lot number can't be blank")
+      end
+
       it 'phone_numberが空の場合購入不可' do
         @purchase.phone_number = nil
         @purchase.valid?
@@ -82,7 +88,7 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase.errors.full_messages).to include("User can't be blank")
       end
 
-      it 'itemm_idが空の場合購入不可' do
+      it 'item_idが空の場合購入不可' do
         @purchase.item_id = nil
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include("Item can't be blank")
