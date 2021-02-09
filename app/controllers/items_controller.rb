@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
@@ -40,7 +39,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render :show 
+      render :show
     end
   end
 
@@ -56,8 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def purchased_item
-    if @item.user_item.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user_item.present?
   end
 end

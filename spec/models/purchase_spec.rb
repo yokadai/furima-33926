@@ -23,7 +23,7 @@ RSpec.describe Purchase, type: :model do
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include("Token can't be blank")
       end
-      
+
       it 'postal_codeが空の場合購入不可' do
         @purchase.postal_code = nil
         @purchase.valid?
@@ -31,9 +31,9 @@ RSpec.describe Purchase, type: :model do
       end
 
       it 'postal_codeに-がない場合購入不可' do
-        @purchase.postal_code = "0900987"
+        @purchase.postal_code = '0900987'
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@purchase.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
       it 'prefecture_idが空の場合購入不可' do
@@ -55,15 +55,15 @@ RSpec.describe Purchase, type: :model do
       end
 
       it 'phone_numberが12桁以上の場合購入不可' do
-        @purchase.phone_number = "090234234321"
+        @purchase.phone_number = '090234234321'
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase.errors.full_messages).to include('Phone number is invalid')
       end
 
       it 'phone_numberが数字以外の場合購入不可' do
-        @purchase.phone_number = "あいうえお"
+        @purchase.phone_number = 'あいうえお'
         @purchase.valid?
-        expect(@purchase.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase.errors.full_messages).to include('Phone number is invalid')
       end
     end
   end
