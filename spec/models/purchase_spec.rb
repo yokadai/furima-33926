@@ -60,11 +60,31 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase.errors.full_messages).to include('Phone number is invalid')
       end
 
+      it 'phone_numberがハイフンありの場合購入不可' do
+        @purchase.phone_number = '090-2342-34321'
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include('Phone number is invalid')
+      end
+
+
       it 'phone_numberが数字以外の場合購入不可' do
         @purchase.phone_number = 'あいうえお'
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include('Phone number is invalid')
       end
+
+      it 'user_idが空の場合購入不可' do
+        @purchase.user_id = nil
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'itemm_idが空の場合購入不可' do
+        @purchase.item_id = nil
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("Item can't be blank")
+      end
+
     end
   end
 end

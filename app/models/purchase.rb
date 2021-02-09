@@ -7,6 +7,8 @@ class Purchase
     validates :city
     validates :token
     validates :prefecture_id
+    validates :user_id
+    validates :item_id
     with_options numericality: { only_integer: true } do
       validates :phone_number, format: { with: /\A0[5789]0-?\d{4}-?\d{4}\z/ }
     end
