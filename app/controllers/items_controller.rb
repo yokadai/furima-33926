@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: [:index, :new, :create]
+  before_action :purchased_item, only: :edit
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -20,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
@@ -51,5 +53,11 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def purchased_item
+    if @item.user_item.present?
+      redirect_to root_path
+    end
   end
 end
