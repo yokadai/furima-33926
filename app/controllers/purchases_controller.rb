@@ -9,7 +9,6 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    user_id = current_user.id
     @purchase = Purchase.new(purchase_params)
     if @purchase.valid?
       pay_item

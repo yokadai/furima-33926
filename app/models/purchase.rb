@@ -1,6 +1,6 @@
 class Purchase
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :lot_number, :building, :phone_number, :user_id, :item_id, :token
+  attr_accessor :postal_code, :prefecture_id, :city, :lot_number, :building, :phone_number, :user_id, :item_id, :token, :user_item_id
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
@@ -13,8 +13,9 @@ class Purchase
   end
 
   def save
+    
+   user_item = UserItem.create(item_id: item_id, user_id: user_id)
     Destination.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, lot_number: lot_number,
-                       building: building, phone_number: phone_number, item_id: item_id, user_id: user_id)
-    UserItem.create(item_id: item_id, user_id: user_id)
+      building: building, phone_number: phone_number, user_item_id: user_item.id)
   end
 end
