@@ -3,6 +3,7 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:index, :new ]
   before_action :set_item, only: [:index, :create]
   before_action :saler
+  before_action :purchased_item
   
   
   def index
@@ -48,6 +49,12 @@ class PurchasesController < ApplicationController
 
     def saler
       if current_user.id == @item.user_id
+        redirect_to root_path
+      end
+    end
+
+    def purchased_item
+      if @item.user_item.present?
         redirect_to root_path
       end
     end
