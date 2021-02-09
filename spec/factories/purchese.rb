@@ -7,7 +7,5 @@ FactoryBot.define do
     lot_number    { '3-2-2' }
     building      { 'ハイツ' }
     phone_number  { '09028194789' }
-    user_id       {1}
-    item_id       {1}
   end
 end
