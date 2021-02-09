@@ -19,6 +19,7 @@ class Item < ApplicationRecord
 
   belongs_to             :user
   has_one                :destination
+  has_one                :user_item
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture

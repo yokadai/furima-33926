@@ -60,6 +60,5 @@
 | item            | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :destination
 - belongs_to :user
 - belongs_to :item
